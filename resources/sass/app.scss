@@ -1,0 +1,29 @@
+//
+@import "frontend/variables";
+@import "utils/feathericons";
+@import 'bootstrap/scss/bootstrap.scss';
+@import "utils/mixins";
+@import "utils/feathericons";
+@import "frontend/default";
+@import "utils/loader";
+@import "utils/toastr";
+
+@include paddingAll;
+@include paddingTop;
+@include paddingLeft;
+@include paddingBottom;
+@include paddingLeftRight;
+@include marginAll;
+@include marginTop;
+@include marginBottom;
+@include marginLeft;
+@include marginRight;
+@include fontSizes;
+@include fontWeight;
+@include fontSizes;
+
+@import "frontend/landing";
+@import "frontend/header";
+@import "frontend/footer";
+@import "frontend/page";
+@import "frontend/form";

@@ -1,0 +1,111 @@
+// Body
+$body-bg: #f5f8fa;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+$assets-path: "~@/assets";
+
+// colors
+$blue: #1B3C71;
+$indigo: #735996;
+$purple: #4b476d;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #FF6900;
+$yellow: #ffc107;
+$green: #27B086;
+$teal: #20c997;
+$cyan: #7C9FC1;
+$dark: #020202;
+$darker: #26233F;
+$dark-light: #4b476d;
+
+// Brands
+$primary: $red;
+$brand-primary: $primary;
+$brand-secondary: $blue;
+$brand-info: #8eb4cb;
+$brand-success: $green;
+$brand-warning: #f9c200;
+$brand-danger: #f00;
+$brand-teal: #636d7e;
+$brand-presumi: #007fff;
+$brand-orange: #fa5b49;
+$brand-dark: $dark;
+$brand-darker: $darker;
+$brand-dark-light: $dark-light;
+$brand-wise: #38548b;
+$brand-wise-dark: #304773;
+$brand-grey: #A9AEBE;
+$brand-greyer: #777F8E;
+$brand-purple: #6772e5;
+$brand-yellow: #f9c200;
+$brand-yellow-dark: #dfa405;
+$brand-purple: #735996;
+$brand-font: #6c81a9;
+$brand-red: $red;
+$brand-red-dark: #a11a28;
+$brand-red-darker: #670e16;
+
+$primary: $brand-primary;
+$secondary: $brand-secondary;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+
+// Typography
+$font-family-sans-serif: "Raleway",
+sans-serif;
+$font-size-base: 1.2rem;
+$line-height-base: 1.6;
+$text-color: #636b6f;
+
+// Navbar
+$navbar-default-bg: #fff;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #fff;
+
+// Colours
+$borderColor: #A9AEBE;
+$listBorderColor: #C9C9C9;
+$inputFontColour: #8F9FB3;
+$linkColour: $brand-primary;
+$linkHoverBackgroundColour: $brand-dark-light;
+$primaryColour: $brand-presumi;
+$secondaryColour: $brand-success;
+$navColour: $brand-dark;
+$fontColour: $brand-dark-light;
+$primaryFontColour: #535D7E;
+$secondaryFontColour: white;
+$navBackgroundColour: white;
+$navTextColour: $primary;
+$navActiveBackgroundColour: white;
+$navHoverColour: #f9f9f9;
+$footerBackground: $brand-darker;
+
+$titleColour: $brand-dark-light;
+$formBorderColor: #e4e9f2;
+$formColor: #495c80;
+
+$navbar-height: 50px;
+$sidebar-width: 240px;
+
+$sidebarLinkColour: white;
+$sidebarBackgroundColour: $brand-red;
+$sidebarActiveColour: white;
+$sidebarActiveBackgroundColour: $brand-red-dark;
+$sidebarHoverBackgroundColour: $brand-red-darker;

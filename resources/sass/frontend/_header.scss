@@ -1,0 +1,38 @@
+._mini-header {
+    width: 100%;
+    background-color: $primary;
+    height: 60px;
+    padding: 10px 20px;
+
+    .header-logo {
+        padding-top: 5px;
+
+        img {
+            height: 30px;
+            width: auto;
+        }
+    }
+}
+
+._large-header {
+    width: 100%;
+    background-color: $primary;
+    padding: 20px 0;
+
+    .header-logo {
+        width: 80%;
+        height: auto;
+        max-width: 500px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 40px;
+        font-family: 'Architects Daughter', Averta, 'Museo Sans';
+
+        img { width: 100% }
+
+        p {
+            font-size: 20px;
+            color: white;
+        }
+    }
+}

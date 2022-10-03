@@ -1,0 +1,10 @@
+{
+    "/assets/js/app.js": "/assets/js/app.js",
+    "/assets/js/manifest.js": "/assets/js/manifest.js",
+    "/assets/js/vendor.js": "/assets/js/vendor.js",
+    "/assets/css/app.css": "/assets/css/app.css",
+    "/backend/js/admin.js": "/backend/js/admin.js",
+    "/backend/css/admin.css": "/backend/css/admin.css",
+    "/backend/js/manifest.js": "/backend/js/manifest.js",
+    "/backend/js/vendor.js": "/backend/js/vendor.js"
+}

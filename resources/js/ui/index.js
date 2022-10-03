@@ -1,0 +1,10 @@
+
+Vue.component('izy-btn', require('./btn/btn').default)
+Vue.component('izy-textarea', require('./textarea/textarea').default)
+Vue.component('izy-datepicker', require('./datepicker/datepicker').default)
+Vue.component('izy-pagination', require('./pagination/pagination').default)
+Vue.component('izy-confirm', require('./modal/confirm').default)
+Vue.component('izy-error', require('./input/error').default)
+Vue.component('izy-modal', require('./modal/modal').default)
+Vue.component('izy-float', require('./input/float').default)
+Vue.component('izy-loader', require('./loader/loader').default)

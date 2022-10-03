@@ -1,0 +1,76 @@
+._landing-page {
+    .landing-page-top {
+        width: 100%;
+        background-color: red;
+        padding: 40px 0;
+
+        .landing-page-logo {
+            width: 80%;
+            height: auto;
+            max-width: 500px;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 40px;
+
+            img { width: 100% }
+        }
+
+        .landing-menu {
+            margin-top: 40px;
+
+            .btn {
+                font-size: 18px;
+            }
+        }
+
+        .landing-motto {
+            margin-top: 10px;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            font-family: 'Architects Daughter', Averta, 'Museo Sans';
+        }
+    }
+
+    .mailing-list-container {
+        margin-top: 60px;
+        text-align: center;
+
+        h4 {
+            color: white;
+            font-size: 20px;
+        }
+    }
+}
+
+
+
+
+.landing-image {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+
+    .landing-image-container {
+        padding-top: 10px;
+    }
+
+    .landing-motto {
+        margin-top: 10px;
+        color: white;
+        font-size: 36px;
+        text-align: center;
+        text-shadow: 1px 2px #000;
+        font-family: 'Architects Daughter', Averta, 'Museo Sans';
+    }
+}
+
+
+.landing-footer {
+    height: 300px;
+    color: white;
+    width: 100%;
+    background-color: $brand-primary;
+}

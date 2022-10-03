@@ -1,0 +1,38 @@
+._main-footer {
+    background-color: $dark;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .footer-logo {
+        width: 200px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img { width: 100% }
+    }
+
+    ._menus,
+    ._zocios {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+            list-style: none;
+
+            a { color: white }
+            i { font-size: 22px }
+
+            li {
+                float: left;
+                margin-right: 20px;
+            }
+        }
+    }
+}

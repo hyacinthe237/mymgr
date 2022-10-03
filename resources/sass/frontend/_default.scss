@@ -1,0 +1,81 @@
+* { margin: 0; padding: 0 }
+a { text-decoration: none; color: $linkColour }
+
+@font-face {
+    font-family: "Averta";
+    src: url("/fonts/averta/AvertaDemo-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Museo Sans";
+    src: url("/fonts/museosans/MuseoSans_500.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Museo Slab";
+    src: url("/fonts/museoslab/Museo_Slab_500.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Museo Sans', 'Averta', Avenir, Calibri, sans-serif;
+    background-color: $body-bg;
+    font-size: 16px;
+    color: $titleColour;
+    font-weight: 300;
+}
+
+h1,h2,h3,h4, h5 { margin: 0 }
+h1 { font-size: 3em }
+h2 { font-size: 2.4em }
+h3 { font-size: 2em }
+h4 { font-size: 1.4em }
+h5 { font-size: 1.1em }
+
+.bold { font-weight: bold }
+.elevated { box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.2) }
+.w-100 { width: 100px }
+.w-150 { width: 150px }
+.w-200 { width: 200px }
+.w-250 { width: 250px }
+.w-300 { width: 300px }
+.fw-300 { font-weight: 300 }
+.fw-500 { font-weight: 500 }
+.fw-600 { font-weight: 600 }
+.pointer { cursor: pointer }
+.text-right { text-align: right }
+.capitalize { text-transform: capitalize }
+._error-message { font-size: 14px; color: red; }
+
+.grey { color: $brand-grey }
+.teal { color: $brand-teal }
+.dark { color: $brand-dark }
+.red { color: $brand-danger }
+.wise { color: $brand-wise }
+.primary { color: $brand-primary }
+.secondary { color: $brand-secondary }
+
+
+.btn-teal { background-color: $brand-teal; color: white }
+.btn-dark { background-color: $brand-dark; color: white }
+.btn-wise { background-color: $brand-wise; color: white }
+.btn-blue { background-color: $brand-presumi; color: white }
+.btn-white { background-color: white; color: $brand-dark }
+.btn-secondary { background-color: $brand-secondary; color: white }
+.btn-grey { background-color: #e4e9f2; color: $formColor }
+.btn-greyer { background-color: $brand-greyer; color: white }
+.btn-red { background-color: $brand-red; color: white }
+.btn-round { border-radius: 500px !important }
+.btn:focus { outline: none }
+.btn, .btn-md {
+    border-radius: 3px;
+    padding: 6px 10px;
+    cursor: pointer;
+}

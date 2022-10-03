@@ -1,0 +1,10 @@
+.text-content {
+    padding: 20px;
+
+    p { font-size: 18px }
+
+    &.bg-primary {
+        color: white;
+        background-color: $primary;
+    }
+}

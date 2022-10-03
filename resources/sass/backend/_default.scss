@@ -1,0 +1,317 @@
+* { margin: 0; padding: 0 }
+a { text-decoration: none; color: $linkColour }
+
+@font-face {
+    font-family: "Averta";
+    src: url("/fonts/averta/AvertaDemo-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Museo Sans";
+    src: url("/fonts/museosans/MuseoSans_500.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Museo Slab";
+    src: url("/fonts/museoslab/Museo_Slab_500.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Museo Sans', 'Averta', Avenir, Calibri, sans-serif;
+    background-color: $body-bg;
+    font-size: 16px;
+    color: $titleColour;
+    font-weight: 300;
+}
+
+h1,h2,h3,h4, h5 { margin: 0 }
+h1 { font-size: 3em }
+h2 { font-size: 2.4em }
+h3 { font-size: 2em }
+h4 { font-size: 1.4em }
+h5 { font-size: 1.1em }
+
+.bold { font-weight: bold }
+.elevated { box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.2) }
+.w-100 { width: 100px }
+.w-150 { width: 150px }
+.w-200 { width: 200px }
+.w-250 { width: 250px }
+.w-300 { width: 300px }
+.fw-300 { font-weight: 300 }
+.fw-500 { font-weight: 500 }
+.fw-600 { font-weight: 600 }
+.pointer { cursor: pointer }
+.text-right { text-align: right }
+.capitalize { text-transform: capitalize }
+._error-message { font-size: 14px; color: red; }
+
+.grey { color: $brand-grey }
+.teal { color: $brand-teal }
+.dark { color: $brand-dark }
+.red { color: $brand-danger }
+.wise { color: $brand-wise }
+.primary { color: $brand-primary }
+.secondary { color: $brand-secondary }
+
+.bg-month { background-color: $brand-primary }
+.bg-quarter { background-color: $brand-secondary }
+.bg-semester { background-color: $brand-success }
+.bg-annual { background-color: $brand-info }
+.bg-unlimited { background-color: $brand-warning }
+
+.btn-teal { background-color: $brand-teal; color: white }
+.btn-dark { background-color: $brand-dark; color: white }
+.btn-wise { background-color: $brand-wise; color: white }
+.btn-blue { background-color: $brand-presumi; color: white }
+.btn-secondary { background-color: $brand-secondary; color: white }
+.btn-grey { background-color: #e4e9f2; color: $formColor }
+.btn-greyer { background-color: $brand-greyer; color: white }
+.btn-red { background-color: $brand-red; color: white }
+.btn-round { border-radius: 500px !important }
+.btn:focus { outline: none }
+.btn, .btn-md {
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.pointer { cursor: pointer; }
+
+.deco-none {
+    text-decoration: none;
+
+    a:hover,
+    &:hover { text-decoration: none }
+}
+
+.btn-default {
+    border: 2px solid $brand-primary;
+
+    &:hover,
+    &:focus {
+        background-color: $brand-wise;
+        border: 2px solid $brand-wise-dark;
+        color: white;
+    }
+}
+
+.btn-teal {
+    &:hover, &:focus {
+        color: white;
+    }
+}
+
+.btn-lg {
+    border-radius: 3px;
+    font-size: 16px;
+
+    &:hover,
+    &:focus { color: white }
+    i { font-size: 1.2em; margin-right: 5px }
+}
+
+.btn-rounded,
+.rounded { border-radius: 500px }
+
+.pagination-lg {
+    > li {
+        &:last-child {
+            > a,
+            > span {
+                border-bottom-right-radius: 3px;
+                border-top-right-radius: 3px;
+            }
+        }
+
+        &:first-child {
+            > a,
+            > span {
+                border-bottom-left-radius: 3px;
+                border-top-left-radius: 3px;
+            }
+        }
+    }
+}
+
+#app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    color: $fontColour;
+}
+
+.sad-block {
+    text-align: center;
+    margin-top: 60px;
+    color: $brand-info;
+
+    i {
+        font-size: 8em;
+        line-height: 1;
+    }
+}
+
+ul.unstyled {
+    list-style: none;
+}
+
+.status-pill {
+    width: auto;
+    padding: 5px 20px;
+    font-size: 15px;
+    color: white;
+    border-radius: 500px;
+    display: inline-block;
+    background-color:$brand-grey;
+
+    &.Active, &.active { background-color: $brand-success }
+    &.Inactive, &.inactive { background-color: $brand-danger }
+}
+
+.tree-menu {
+    .label-wrapper {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+
+        .has-children {
+            cursor: pointer;
+        }
+    }
+}
+
+.success {
+    color: $brand-success;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.block-container {
+    box-shadow: 1px 0 5px 1px rgba(30, 107, 174, 0.1);
+    background-color: white;
+    border-radius: 10px;
+    overflow-x: scroll;
+    width: 100%;
+
+    .table-search {
+        margin-bottom: 10px;
+    }
+
+    .header {
+        padding: 20px;
+
+        .profile-status {
+            background-color: $brand-teal;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 13px;
+            color: white;
+
+            &.active { background-color: $brand-success }
+            &.blocked { background-color: $brand-danger }
+        }
+    }
+
+    ._form {
+        .form-group { margin: 0 }
+
+        .inner-addon .feather {
+            color: $dark;
+            font-size: 16px;
+            left: 4px;
+            top: -1px;
+        }
+    }
+
+    .btn { font-size: 1rem }
+
+    ._block-tabs {
+        width: 100%;
+        border-bottom: 1px solid #f5f8fa;
+        position: relative;
+        // display: flex;
+
+        ._block-tab {
+            // flex: 1;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 20px;
+            display: inline-block;
+
+            i { font-size: 17px; margin-right: 10px; }
+            a { color: $brand-teal }
+            a:hover { text-decoration: none }
+
+            &.active {
+                border-bottom: 2px solid $brand-darker;
+                a { color: $primary }
+            }
+
+            @media (max-width: 480px) {
+                text-align: center;
+                span { display: none }
+                i { margin: 0 }
+            }
+        }
+    }
+}
+
+.component-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.breadcrumb {
+    padding: 0;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.profile-photo {
+    width: 100%;
+    position: relative;
+    text-align: center;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 100%;
+    }
+}
+
+.data-row {
+    margin-bottom: 10px;
+
+    .label {
+        font-family: 'Museo Slab', 'Museo Sans', Averta, sans-serif;
+        color: $brand-teal;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .value {
+        color: $brand-dark;
+        
+        font-size: 16px;
+    }
+}
+
+.list {
+    .list-item {
+        width: 100%;
+        padding: 10px 0;
+
+        &.border-top { border-top: 1px solid #ddd }
+        &.border-bottom { border-bottom: 1px solid #ddd }
+    }
+}

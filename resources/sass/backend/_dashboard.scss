@@ -1,0 +1,214 @@
+.dashboard {
+    padding-top: 20px;
+
+    a:hover { text-decoration: none }
+
+    .cards {
+        .card {
+            border: none;
+            padding: 30px 0;
+            font-weight: 300;
+            text-align: center;
+            color: $dark-light;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            font-family: Aveerta, 'Museo Sans', Cabin, sans-serif;
+
+            h3 {
+                font-size: 2.5rem;
+                line-height: 4rem;
+            }
+
+            h5 {
+                font-size: 1rem;
+                padding: 0 10px;
+                @include ellipsis;
+            }
+
+            i {
+                font-size: 35px;
+            }
+
+            &.blue {
+                color: white;
+                background-color: #3080ff;
+            }
+            &.success {
+                color: white;
+                background-color: $brand-success;
+            }
+            &.dark {
+                color: white;
+                background-color: $brand-dark-light;
+            }
+            &.danger {
+                color: white;
+                background-color: $brand-danger;
+            }
+
+            &.purple {
+                color: white;
+                background-color: $brand-purple;
+            }
+
+            &.grey {
+                background-color: #edf1f7;
+                color: $brand-font;
+            }
+
+            &.primary {
+                color: white;
+                background-color: $brand-primary;
+            }
+
+            &.wise {
+                color: white;
+                background-color: $brand-wise;
+            }
+        }
+    }
+
+
+
+    .table {
+        font-family: 'Product Sans', Averta, 'Source Sans Pro', sans-serif;
+
+        > thead {
+            > tr {
+                > th {
+                    border-bottom: 1px solid #e8ecf3;
+                    line-height: 1.5;
+                    font-size: 1.1em;
+                    font-weight: 500;
+                    color: $titleColour;
+                    font-family: Cabin, sans-serif;
+                }
+            }
+        }
+
+        >tbody {
+            > tr {
+                > td {
+                    font-weight: 400;
+                    font-size: 15px;
+
+                    a {
+                        color: $titleColour;
+
+                        &.edit-icon { color: white }
+
+                        &.delete-icon { color: white }
+                    }
+
+                    &:last-child {
+                        text-align: left;
+                    }
+
+                    .status {
+                        width: 70px;
+                        color: white;
+                        padding: 5px 0;
+                        font-size: 12px;
+                        font-weight: 600;
+                        text-align: center;
+                        border-radius: 50px;
+                        background-color: $brand-teal;
+
+                        &.active, &.approved { background-color: $brand-success }
+                        &.blocked, &.Closed, &.closed, &.declined, &.denied { background-color: $brand-danger }
+                    }
+                }
+            }
+        }
+    }
+
+    .edit-icon {
+        padding: 7px 10px;
+        border-radius: 4px;
+        background-color: $titleColour;
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .delete-icon {
+        padding: 7px 10px;
+        border-radius: 4px;
+        background-color: $brand-danger;
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .edition-categories {
+        h5 {
+            font-family: 'PT Sans', 'Source Sans', Calibri, sans-serif;
+            font-weight: 500;
+        }
+
+        .card {
+            width: 100%;
+            background-color: $body-bg;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #f0f1f0;
+            cursor: pointer;
+            margin-bottom: 10px;
+
+            img {
+                width: 40px;
+                border-radius: 50%;
+                float: left;
+                margin-right: 10px;
+            }
+
+            .name {
+                font-size: 16px;
+                @include ellipsis;
+            }
+
+            .likes {
+                color: $brand-teal;
+                font-size: 13px;
+                font-weight: 500;
+                font-family: sans-serif;
+            }
+        }
+    }
+
+
+    .conversation {
+        width: 100%;
+        height: auto;
+        max-height: 195vh;
+        overflow: scroll;
+
+        .content {
+            background-color: #eee;
+            border-radius: 7px;
+            padding: 10px 20px;
+            color: $brand-teal;
+            font-size: 16px;
+        }
+
+        .me, .them {
+            margin-bottom: 20px;
+            color: $brand-teal;
+            font-size: 13px;
+        }
+
+        .me {
+            margin-left: 40px;
+        }
+
+        .them {
+            margin-right: 40px;
+        }
+    }
+}
