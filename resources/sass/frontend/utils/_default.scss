@@ -1,0 +1,140 @@
+* { margin: 0; padding: 0 }
+a { text-decoration: none; color: $linkColour }
+
+@font-face {
+    font-family: "Averta";
+    src: url("/assets/fonts/averta/AvertaDemo-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-familly-app;
+    background-color: $body-bg;
+    font-size: 16px;
+    color: $fontColour;
+}
+
+h1,h2,h3,h4 { margin: 0 }
+h1 { font-size: 3em }
+h2 { font-size: 2.4em }
+h3 { font-size: 2em }
+h4 { font-size: 1.5em }
+h5 { font-size: 1.1em }
+
+
+a:hover,
+a:focus { text-decoration: none }
+
+
+
+.bold { font-weight: 600 }
+.teal { color: $brand-teal }
+.red { color: $brand-danger }
+.green { color: $brand-success }
+.primary { color: $brand-primary }
+.elevated { box-shadow: 2px 8px 20px rgba(0, 0, 0, 0.2) }
+.w-100 { width: 100px }
+.w-150 { width: 150px }
+.w-200 { width: 200px }
+.w-250 { width: 250px }
+.w-300 { width: 300px }
+.fw-300 { font-weight: 300 }
+.fw-500 { font-weight: 500 }
+.fw-600 { font-weight: 600 }
+.pointer { cursor: pointer }
+.text-right { text-align: right }
+.bg-white { background-color: white }
+.capitalize { text-transform: capitalize }
+.uppercase { text-transform: uppercase }
+
+.btn-round { border-radius: 50% }
+.btn-radius { border-radius: 500px }
+.btn-radius { border-radius: 500px }
+.btn-teal { background-color: $brand-teal; color: white }
+.btn-teal:hover, .btn-teal:focus { color: #f1f1f1 }
+.btn-dark { background-color: $brand-dark; color: white }
+.btn-wise { background-color: $brand-wise; color: white }
+.btn-presumi { background-color: $brand-presumi; color: white }
+.btn-grey { background-color: $brand-grey; color: white }
+.btn:focus { outline: none }
+.btn { font-family: Averta }
+
+.btn-md {
+    padding: 9px 25px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-lg {
+    border-radius: 4px;
+}
+
+
+.main-content {
+    width: 100%;
+    margin-top: 10px;
+    padding-bottom: 60px;
+
+    .content-title {
+        font-weight: 300;
+        font-size: 1.3em;
+        text-transform: capitalize;
+
+        .title-project {
+            font-size: 15px;
+            color: $brand-teal;
+            text-transform: none;
+            padding-right: 10px;
+            font-weight: 500;
+        }
+    }
+
+    .toolbar {
+        font-weight: 600;
+        font-size: 14px;
+
+        a { margin-right: 10px }
+    }
+}
+
+.details {
+    padding-top: 15px;
+    font-size: 16px;
+
+    span{
+        color: $brand-teal;
+    }
+
+    .item {
+        text-align: justify;
+        color: $brand-teal;
+        padding-top: 25px;
+    }
+
+    i { margin-right: 7px; font-size: 18px }
+    .metas { font-size: 15px }
+    h5 { font-weight: 600; color: $brand-darker }
+}
+
+.sad-block {
+    text-align: center;
+    margin-top: 60px;
+    color: $brand-info;
+
+    i {
+        font-size: 8em;
+        line-height: 1;
+    }
+}
+
+.breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    list-style: none;
+    background-color: #f5f5f5;
+    background: none;
+    border-radius: 4px;
+}

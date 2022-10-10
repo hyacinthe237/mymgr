@@ -1,0 +1,170 @@
+._block {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    color: $brand-dark;
+    @include box-shadow;
+
+    ._block-title {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid inherit;
+    }
+
+    ._block-content {
+        padding: 20px;
+        @include box-shadow;
+
+        .profile-picture {
+            width: auto;
+        }
+    }
+
+    &._block-radius { border-radius: 4px }
+    &._block-info { background-color: $brand-info; color: $brand-dark }
+    &._block-primary { background-color: $brand-primary; color: white }
+    &._block-grey { background-color: $brand-greyer; color: white }
+
+
+    h4 { font-size: 1.2em }
+    h3 { font-size: 1.3em }
+    h2 { font-size: 1.5em }
+
+    .nav-tabs {
+        > li {
+            a {
+                padding: 10px 20px;
+                font-size: 14px;
+                font-weight: 600;
+
+                i { font-size: 1.3em }
+
+                &:hover,
+                &:focus {
+                    @include tab-active;
+                }
+            }
+
+            &.active {
+                a,
+                a:hover,
+                a:focus {
+                    @include tab-active;
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+.blocks-items {
+    width: 100%;
+    display: block;
+
+    .block-item {
+        background-color: white;
+        border-radius: 5px;
+        padding: 8px 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        position: relative;
+        @include box-shadow;
+
+        .item-top {
+            font-size: 16px;
+
+            a { color: $brand-dark }
+        }
+
+        .ticket {
+            background-color: white;
+            border-radius: 5px;
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            position: relative;
+            @include box-shadow;
+        }
+
+        .item-bottom {
+            font-size: 14px;
+            color: $brand-teal;
+            font-weight: 600;
+            width: 100%;
+
+            a { color: $brand-teal }
+            i { margin-right: 5px }
+
+            .item-left {
+                float: left;
+                width: auto;
+            }
+
+            .item-right {
+                float: right;
+                width: auto;
+            }
+        }
+
+        .item-bottom,
+        .item-top {
+            @include ellipsis;
+            a:hover,
+            a:focus { text-decoration: none }
+        }
+
+        .item-metas {
+            margin-top: 5px;
+            text-align: right;
+        }
+    }
+}
+
+.blocks-team-items {
+    width: 100%;
+    display: block;
+
+    .block-team-item {
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        position: relative;
+        @include box-shadow;
+
+        .team-image {
+
+            &.circle {
+                img {
+                    width: 100%;
+                    margin: 0 auto;
+                    @include circle(200px, #fff);
+                }
+            }
+        }
+
+        .team-name {
+            font-weight: bold;
+            padding-top: 10px;
+            display: block;
+            font-size: 16px;
+        }
+
+        .team-function {
+            display: block;
+            padding-top: 5px;
+            font-size: 14px;
+            color: $brand-teal;
+            font-weight: bold;
+        }
+
+        .team-share {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+}

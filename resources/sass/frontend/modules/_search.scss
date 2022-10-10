@@ -1,0 +1,61 @@
+.search-page {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    .search-container {
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .inner {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.055);
+            border-radius: 8px;
+            margin: 0 auto;
+            padding: 10px 20px;
+
+            h4 {
+                padding-top: 15px;
+                padding-bottom: 30px;
+                font-size: 18px;
+                text-transform: none;
+                text-align: justify;
+            }
+
+            .item-line {
+                padding-top: 15px;
+                font-size: 14px;
+                text-align: justify;
+
+                a {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $brand-teal;
+
+                    &:hover,
+                    &:focus {
+                        @include tab-active;
+                    }
+                }
+
+                &.active {
+                    a,
+                    a:hover,
+                    a:focus {
+                        @include tab-active;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+
+}

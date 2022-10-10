@@ -7,7 +7,7 @@
 
 
 
-@section('body')
+@section('content')
 <div class="_large-header">
     <div class="header-logo">
         <a href="/">
@@ -38,6 +38,3 @@
 
 @include('frontend.includes.footer')
 @endsection
-
-
-

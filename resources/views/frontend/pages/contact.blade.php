@@ -7,7 +7,7 @@
 
 
 
-@section('body')
+@section('content')
 <div class="_large-header">
     <div class="header-logo">
         <a href="/">
@@ -34,20 +34,20 @@
 
         <div class="row">
             <div class="col-sm-3"></div>
-    
+
             <div class="col-sm-6">
                 @if(session()->has('message'))
                     <div class="alert alert-success">
                         {{ session()->get('message') }}
                     </div>
                 @else
-    
+
                 <div class="mailing-form">
                     <form method="post" action="/contact" class="_form mt-20">
                         <input type="hidden" name="other" value="chef">
-    
+
                         {{ csrf_field() }}
-    
+
                         <div class="form-group">
                             <input type="text"
                                 class="form-control form-control-lg round text-center"
@@ -56,7 +56,7 @@
                                 required
                             >
                         </div>
-    
+
                         <div class="form-group">
                             <input type="email"
                                 class="form-control form-control-lg round text-center"
@@ -68,16 +68,16 @@
 
 
                         <div class="form-group">
-                            <textarea 
+                            <textarea
                                 name="content" rows="4"
                                 class="form-control"
                                 placeholder="Enter message here"
                                 required
                             ></textarea>
                         </div>
-    
+
                         <div class="mt-20 text-right">
-                            <button 
+                            <button
                                 class="btn btn-dark btn-round w-150"
                             >Submit</button>
                         </div>
@@ -92,6 +92,3 @@
 
 @include('frontend.includes.footer')
 @endsection
-
-
-

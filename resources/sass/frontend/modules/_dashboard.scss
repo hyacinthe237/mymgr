@@ -1,0 +1,44 @@
+
+.dashboard {
+    margin-top: 20px;
+
+    .cards {
+        .card {
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-family: 'Source Sans Pro', Cabin, sans-serif;
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            i {
+                font-size: 35px;
+            }
+
+            &.blue {
+                background-color: #3080ff;
+            }
+            &.green {
+                background-color: $brand-success;
+            }
+            &.dark {
+                background-color: $brand-dark;
+            }
+            &.red {
+                background-color: $brand-danger;
+            }
+            &.purple {
+                background-color: $brand-purple;
+            }
+            &.grey {
+                background-color: #edf1f7;
+                color: $brand-font;
+            }
+        }
+    }
+}

@@ -7,6 +7,21 @@
 @import "frontend/default";
 @import "utils/loader";
 @import "utils/toastr";
+@import "frontend/utils/alert";
+@import "frontend/utils/animate";
+@import "frontend/utils/datepicker";
+@import "frontend/utils/default";
+@import "frontend/utils/dropzone";
+@import "frontend/utils/form";
+@import "frontend/utils/icheck";
+@import "frontend/utils/ionicons";
+@import "frontend/utils/mixins";
+@import "frontend/utils/modal";
+@import "frontend/utils/placeholder";
+@import "frontend/utils/swal";
+@import "frontend/utils/toastr";
+@import "frontend/utils/tooltip";
+@import "frontend/utils/trumbowyg";
 
 @include paddingAll;
 @include paddingTop;
@@ -26,4 +41,13 @@
 @import "frontend/header";
 @import "frontend/footer";
 @import "frontend/page";
+@import "frontend/auth";
 @import "frontend/form";
+@import "frontend/modules/activity";
+@import "frontend/modules/comments";
+@import "frontend/modules/dashboard";
+@import "frontend/modules/header";
+@import "frontend/modules/nav";
+@import "frontend/modules/projects";
+@import "frontend/modules/sidebar";
+@import "frontend/modules/tickets";

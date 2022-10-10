@@ -1,0 +1,104 @@
+.login-page {
+    background-color: #ebf4f9;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    .login-container {
+        width: 100%;
+        max-width: 900px;
+        height: 820px;
+        background-image: url('../images/log.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0 auto;
+        padding-top: 120px;
+        overflow: hidden;
+
+        .inner {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.055);
+            border-radius: 8px;
+            width: 400px;
+            max-width: 98%;
+            margin: 0 auto;
+            padding: 20px 40px;
+
+            .logo {
+                width: 100px;
+                height: 100px;
+                background-image: url('../images/logo-mini.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 0 auto;
+            }
+
+            .logo-name {
+                text-align: center;
+                font-weight: bold;
+                font-size: 23px;
+                color: $brand-purple;
+                text-transform: uppercase;
+            }
+
+            h4 {
+                padding-top: 15px;
+                font-size: 18px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .form-container {
+                .form-group {
+                    margin: 0;
+                    margin-bottom: 5px;
+                }
+
+                .form-control {
+                    background-color: white;
+                    border: 2px solid #dbe7f2;
+
+                    &:focus {
+                        border: 2px solid #acc0d3;
+                    }
+                }
+            }
+
+            .links {
+                margin-top:20px;
+                font-weight: bold;
+                text-align: center;
+                font-size: 14px;
+            }
+
+        }
+
+    }
+
+
+}
+
+.auth-organization {
+    background-color: white;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    @include ellipsis();
+    box-shadow: 0 10px 48px rgba(30, 107, 174, 0.1), 0 1px 1px rgba(255, 248, 254, 0.61);
+
+    &:hover,
+    &:focus {
+        background-color: #eee;
+    }
+
+    a { display: block }
+    i { float: right }
+}

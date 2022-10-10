@@ -17,7 +17,7 @@
 @endsection
 
 
-@section('body')
+@section('content')
 <div class="_landing-page">
     <div class="landing-page-top">
         <div class="landing-page-logo">

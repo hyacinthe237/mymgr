@@ -1,0 +1,90 @@
+
+._tickets {
+
+    .list-item {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 8px;
+
+        .item-top {
+            font-size: 16px;
+            font-weight: 500;
+
+            a { color: $brand-dark }
+        }
+
+        .item-bottom {
+            font-size: 14px;
+            color: $brand-teal;
+            font-weight: 600;
+
+            a { color: $brand-teal }
+            i { margin-right: 5px }
+        }
+
+        .item-bottom,
+        .item-top {
+            @include ellipsis;
+            a:hover,
+            a:focus { text-decoration: none }
+        }
+
+        .item-metas {
+            margin-top: 5px;
+            text-align: right;
+        }
+    }
+}
+
+
+._tickets,
+.block-item {
+    .dropdown-menu {
+        margin-top: 10px;
+        border-radius: 4px;
+        background-color: white;
+        border:1px solid #eee;
+        padding: 0;
+        max-height: 300px;
+        width: 200px;
+        overflow-x: scroll;
+        @include box-shadow;
+
+        > li {
+            padding: 0;
+            margin: 0;
+            @include ellipsis;
+
+            &.title {
+                padding: 5px 20px;
+                font-weight: 600;
+                text-align: center;
+                background-color: #f1f1f1;
+                width: 100%;
+                font-size: 15px;
+                border-radius: 4px;
+            }
+
+            &.item {
+                font-size: 14px;
+                padding: 5px 20px;
+                color: $brand-teal;
+                font-weight: 500;
+                cursor: pointer;
+
+                &:hover,
+                &:focus {
+                    color: $linkColour;
+                    background-color: $body-bg;
+                }
+
+                &.active {
+                    background-color: white;
+                    font-weight: 600;
+
+                    i { margin-right: 5px}
+                }
+            }
+        }
+    }
+}

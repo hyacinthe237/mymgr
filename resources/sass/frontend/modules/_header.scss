@@ -1,0 +1,260 @@
+
+header {
+    background: #fff;
+    height: 70px;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    @include box-shadow;
+
+
+    .logo {
+        width: 160px;
+        float: left;
+        text-align: center;
+
+        img {
+            width: 40px;
+            margin: 0 auto;
+        }
+    }
+
+
+
+    .search-icon {
+        font-size: 30px;
+        color: #d4d4d4;
+        margin-left: 20px;
+    }
+
+    .notifications {
+        font-size: 25px;
+    }
+
+    .parameter {
+        font-size: 25px;
+    }
+
+    .bubble {
+        position: absolute;
+        margin-left: 7px;
+        margin-top: -19px;
+    }
+
+    .notify {
+        cursor: pointer;
+        margin-right: 20px;
+    }
+
+    .parameters {
+        cursor: pointer;
+        margin-right: 20px;
+        color: inherit;
+        font-size: 25px;
+
+        #icone {
+            position: absolute;
+        }
+
+        #badge {
+            position: absolute;
+            margin-top: -25px;
+            margin-left: 8px;
+            z-index: 99;
+            background-color: $brand-danger;
+            font-size: 9px;
+        }
+    }
+
+    .nav > li > a {
+        padding: 0 !important;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+
+        &.btn {
+            padding: 6px 20px !important;
+        }
+    }
+
+    .notifications-count {
+        margin-top: -20px;
+        position: absolute;
+        z-index: 99;
+    }
+
+    .param {
+        margin-top: -20px;
+        position: absolute;
+    }
+
+    .organization {
+        margin-top: 5px;
+
+        > a:focus,
+        > a:hover {
+            background-color: white;
+        }
+    }
+
+    .dropdown {
+        left: 0;
+    }
+}
+
+
+.header-search {
+    float: left;
+    margin-left: 30px;
+    border-left: 1px solid #ddd;
+    height: 40px;
+
+    .form-control {
+        height: 40px;
+        width: 400px;
+        font-size: 16px;
+        color: #777;
+        margin-left: 13px;
+
+        &::-webkit-input-placeholder {
+            color: #aaa;
+        }
+
+        &:focus {
+            outline: 0;
+            border: 1px solid #d0e5e6;
+        }
+    }
+}
+
+
+.header-links > li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.btn-upload {
+    padding: 4px 9px;
+    font-size: 20px;
+}
+
+.profile-name {
+    margin-right: 4px;
+}
+
+header .profile {
+    cursor: pointer;
+}
+
+.humbager {
+    width: 40px;
+    float: left;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: -200px;
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    transition: all 0.9s ease;
+}
+
+.left-bar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    float: left;
+    padding-top: 90px;
+    z-index: 98;
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    transition: all 0.9s ease;
+}
+
+.left-bar li,
+.settings-menu li {
+    list-style: none;
+}
+
+.left-bar i {
+    font-size: 25px;
+    margin-right: 15px;
+}
+
+.left-bar span.text {
+    margin-top: 8px;
+    position: absolute;
+    font-size: 15px;
+}
+
+.left-bar span.bubble {
+    float: right;
+    margin-top: 7px;
+    width: 25px;
+    height: 25px;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.left-bar label.menu-icon {
+    width: 40px;
+}
+
+.left-bar a {
+    display: block;
+    margin: 15px;
+    font-size: 14px;
+    color: #777;
+    margin-left: 3em;
+}
+
+.content {
+    margin: 0 0 0 250px;
+    padding: 15px;
+    padding-top: 90px;
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    transition: all 0.9s ease;
+}
+
+.left-bar li.active a,
+.left-bar li a:hover {
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+    background-color: white;
+}
+
+
+
+.dropdown-menu {
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: white;
+    border:1px solid #eee;
+    @include box-shadow;
+
+    > li {
+        padding: 0;
+        margin: 0;
+
+        > a {
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 30px;
+            color: $brand-teal;
+
+            &:hover,
+            &:focus {
+                color: $linkColour;
+                background-color: $body-bg;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.activity-log {
+    width: 100%;
+    padding: 20px;
+
+    h4 {
+        font-family: 'Source Sans Pro', Roboto, sans-serif;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    ._log {
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        font-size: 15px;
+
+        .date {
+            color: $brand-teal;
+            float: right;
+            font-size: 14px;
+        }
+
+        .changes {
+            color: $brand-teal;
+            
+            ul { padding-left: 20px }
+        }
+    }
+}

@@ -26,9 +26,10 @@ mix.autoload({
 
 
 mix.extract(['vue', 'jquery', 'popper.js', 'bootstrap', 'lodash', 'moment', 'sweetalert2',
-    'toastr', 'vuex', 'axios', 'moment-range', 'vee-validate', 'epic-spinners', 
+    'toastr', 'vuex', 'axios', 'moment-range', 'vee-validate', 'epic-spinners',
     'vue-translate-plugin', 'bootstrap-datepicker'
 ]).js('resources/js/app.js', 'public/assets/js')
+// ]).js('resources/js/components/frontend/app.js', 'public/assets/js')
 
 mix.sass('resources/sass/app.scss', 'public/assets/css')
 .options({

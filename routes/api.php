@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,156 +14,95 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'mobile', 'namespace' => 'Api\Mobile'], function () {
-    Route::get('lists', 'AppController@lists');
-    Route::post('signup', 'AuthController@signup');
-    Route::post('signin', 'AuthController@signin');
+Route::group(['middleware' => ['auth:api']], function () {
 
-    Route::group(['middleware' => 'auth:api'], function () {
-        Route::get('me', 'AuthController@me');
-        Route::post('me', 'UserController@updateMe');
-        Route::get('verify-pin/{pin}', 'UserController@verifyPin');
-        Route::post('profile', 'UserController@updateProfile');
-        Route::post('file-upload', 'DocumentController@uploadDocument');
-        Route::post('cards', 'UserController@udpateCard');
-        Route::post('ratings', 'UserController@rate');
+    Route::group(['middleware' => 'organization'], function () {
+        Route::get('user-tickets', 'Api\V1\TicketController@userTickets');
 
-        Route::group(['prefix' => 'cuisines'], function () {
-            Route::get('/', 'CuisineController@index');
-            Route::get('{code}', 'CuisineController@show');
-            Route::get('{code}/chefs', 'CuisineController@chefs');
-        });
-
-        Route::group(['prefix' => 'chefs'], function () {
-            Route::get('/', 'UserController@getChefs');
-            Route::get('{code}', 'UserController@getChef');
-            Route::get('{code}/dishes', 'UserController@getChefDishes');
-            Route::get('{code}/bookings', 'BookingController@getChefBookings');
-        });
-
-        Route::group(['prefix' => 'dishes'], function () {
-            Route::post('/', 'DishController@store');
-            Route::patch('{code}', 'DishController@update');
-            Route::post('{code}/image', 'DishController@saveImage');
-        });
-
-        Route::group(['prefix' => 'comments'], function () {
-            Route::post('/', 'CommentController@store');
-        });
-
-        Route::group(['prefix' => 'bookings'], function () {
-            Route::post('/', 'BookingController@store');
-            Route::get('/', 'BookingController@index');
-            Route::get('{code}', 'BookingController@getBooking');
-            Route::patch('{code}', 'BookingController@updateBooking');
-            Route::post('{code}/finish', 'BookingController@finishBooking');
-        });
-
-        Route::group(['prefix' => 'documents'], function () {
-            Route::get('/', 'DocumentController@getUserDocuments');
-            Route::post('user', 'DocumentController@assignUser');
-        });
-
-        Route::group(['prefix' => 'earnings'], function () {
-            Route::get('/', 'EarningController@getEarnings');
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('/', 'Api\V1\UserController@index');
+            Route::post('/', 'Api\V1\UserController@store');
+            Route::get('/{userId}', 'Api\V1\UserController@show');
+            Route::put('/{userId}', 'Api\V1\UserController@update');
+            Route::delete('/{userId}', 'Api\V1\UserController@destroy');
+            Route::get('/{userId}/blocked', 'Api\V1\UserController@blocked');
         });
 
         Route::group(['prefix' => 'tickets'], function () {
-            Route::get('/', 'TicketController@index');
-            Route::post('/', 'TicketController@store');
-            Route::get('/{code}', 'TicketController@show');
-            Route::patch('/{code}', 'TicketController@update');
+            Route::get('/', 'Api\V1\TicketController@index');
+            Route::post('/', 'Api\V1\TicketController@store');
+            Route::get('/{ticketId}', 'Api\V1\TicketController@show');
+            Route::put('/{ticketId}', 'Api\V1\TicketController@update');
+            Route::delete('/{ticketId}', 'Api\V1\TicketController@destroy');
+            Route::post('/{ticketId}/comments', 'Api\V1\TicketController@addComment');
+            Route::get('/{ticketId}/comments', 'Api\V1\TicketController@listComments');
+
+            Route::group(['prefix' => '{number}'], function () {
+                Route::get('remove/attachments/{file_code}', 'Api\V1\TicketController@removeFile');
+                Route::get('activity', 'Api\V1\TicketController@activity');
+            });
+
         });
 
-        Route::group(['prefix' => 'withdrawals'], function () {
-            Route::get('/', 'WithdrawalController@getWithdrawals');
-            Route::post('/', 'WithdrawalController@storeWithdrawal');
+        Route::group(['prefix' => 'ticket-categories'], function () {
+            Route::get('/', 'Api\V1\TicketCategoryController@index');
+            Route::post('/', 'Api\V1\TicketCategoryController@store');
+            Route::get('/{TicketCategoryId}', 'Api\V1\TicketCategoryController@show');
+            Route::put('/{TicketCategoryId}', 'Api\V1\TicketCategoryController@update');
+            Route::delete('/{TicketCategoryId}', 'Api\V1\TicketCategoryController@destroy');
         });
 
-        Route::group(['prefix' => 'availability'], function () {
-            Route::post('/', 'AvailabilityController@update');
-            Route::get('/', 'AvailabilityController@show');
-            Route::get('/{code}', 'AvailabilityController@show');
+        Route::group(['prefix' => 'projects'], function () {
+            Route::get('/', 'Api\V1\ProjectController@index');
+            Route::post('/', 'Api\V1\ProjectController@store');
+            Route::get('/{projectId}', 'Api\V1\ProjectController@show');
+            Route::put('/{projectId}', 'Api\V1\ProjectController@update');
+            Route::delete('/{projectId}', 'Api\V1\ProjectController@destroy');
+            Route::post('/{projectId}/comments', 'Api\V1\ProjectController@addComment');
+            Route::get('/{projectId}/comments', 'Api\V1\ProjectController@listComments');
+
+            Route::group(['prefix' => '{code}'], function () {
+                Route::get('tickets', 'Api\V1\ProjectController@tickets');
+                Route::get('remove/attachments/{file_code}', 'Api\V1\ProjectController@removeFile');
+            });
+        });
+
+        Route::group(['prefix' => 'project-categories'], function () {
+            Route::get('/', 'Api\V1\ProjectCategoryController@index');
+            Route::post('/', 'Api\V1\ProjectCategoryController@store');
+            Route::get('/{projectCategoryId}', 'Api\V1\ProjectCategoryController@show');
+            Route::put('/{projectCategoryId}', 'Api\V1\ProjectCategoryController@update');
+            Route::delete('/{projectCategoryId}', 'Api\V1\ProjectCategoryController@destroy');
+        });
+
+        Route::group(['prefix' => 'invitations'], function () {
+            Route::get('/', 'Api\V1\InvitationController@index');
+            Route::post('/', 'Api\V1\InvitationController@store');
+            Route::get('/{invitationId}', 'Api\V1\InvitationController@show');
+            Route::put('/{invitationId}', 'Api\V1\InvitationController@update');
+            Route::delete('/{invitationId}', 'Api\V1\InvitationController@destroy');
+        });
+
+
+        Route::group(['prefix' => 'members'], function () {
+            Route::get('/', 'Api\V1\MemberController@index');
+            Route::delete('{code}', 'Api\V1\MemberController@destroy');
         });
     });
-});
 
 
-/**
- * Admin API routes 
- */
-Route::group([
-    'prefix' => 'v1', 
-    'middleware' => 'auth:api', 
-    'namespace' => 'Api\V1'], 
-    function () 
-{
-    Route::post('upload', 'DocumentController@upload');
-    
-    Route::group(['prefix' => 'users'], function () {
-        Route::get('/', 'UserController@index');
-        Route::get('/roles', 'UserController@roles');
-        Route::get('/admins', 'UserController@getAdmins');
-        Route::get('{code}', 'UserController@show');
-        Route::patch('{code}', 'UserController@update');
-        Route::get('{code}/bookings', 'UserController@getBookings');
-        Route::get('{code}/documents', 'UserController@getDocuments');
-        Route::patch('{code}/documents/{uuid}', 'UserController@updateDocuments');
+
+    Route::group(['prefix' => 'organizations'], function () {
+        Route::get('/', 'Api\V1\OrganizationController@index');
+        Route::post('/', 'Api\V1\OrganizationController@store');
+        Route::get('/{organizationId}', 'Api\V1\OrganizationController@show');
+        Route::put('/{organizationId}', 'Api\V1\OrganizationController@update');
+        Route::delete('/{organizationId}', 'Api\V1\OrganizationController@destroy');
     });
 
 
-    Route::group(['prefix' => 'comments'], function () {
-        Route::post('/', 'CommentController@store');
-    });
-
-    Route::group(['prefix' => 'roles'], function () {
-        Route::get('/', 'RoleController@index');
-        Route::post('/documents', 'RoleController@addDocument');
-    });
-
-    Route::group(['prefix' => 'documents'], function () {
-        Route::patch('/{code}', 'DocumentController@update');
-        Route::delete('/{code}', 'DocumentController@delete');
-    });
-
-    Route::group(['prefix' => 'newsletter'], function () {
-        Route::get('/', 'UserController@getNewsletter');
-    });
-
-    Route::group(['prefix' => 'tickets'], function () {
-        Route::get('/', 'TicketController@index');
-        Route::get('/{code}', 'TicketController@show');
-        Route::patch('/{code}', 'TicketController@update');
-    });
-
-    Route::group(['prefix' => 'bookings'], function () {
-        Route::get('/', 'BookingController@index');
-        Route::get('/{code}', 'BookingController@show');
-        Route::patch('/{code}', 'BookingController@update');
-    });
-
-    Route::group(['prefix' => 'cuisines'], function () {
-        Route::get('/', 'ListController@cuisines');
-        Route::get('/{code}', 'ListController@cuisine');
-        Route::patch('/{code}', 'ListController@cuisineUpdate');
-        Route::post('/', 'ListController@cuisineCreate');
-    });
-
-    Route::group(['prefix' => 'dishes'], function () {
-        Route::get('/', 'ListController@dishes');
-        Route::get('/{code}', 'ListController@dish');
-        Route::patch('/{code}', 'ListController@dishUpdate');
-        Route::patch('/{code}/image', 'ListController@dishUpdateImage');
-    });
-
-    Route::group(['prefix' => 'payments'], function () {
-        Route::get('/', 'PaymentController@index');
-        Route::get('/{code}', 'PaymentController@show');
-    });
-
-    Route::group(['prefix' => 'withdrawals'], function () {
-        Route::get('/', 'WithdrawalController@getWithdrawals');
-        Route::get('/{code}', 'WithdrawalController@getWithdrawal');
-        Route::patch('/{code}', 'WithdrawalController@updateWithdrawal');
-    });
+    Route::post('addprivate', 'Api\V1\ProjectController@addPrivate');
+    Route::get('getPrivateUsers/{code}', 'Api\V1\ProjectController@getPrivateUsers');
+    Route::post('removePrivateUsers', 'Api\V1\ProjectController@removePrivateUsers');
+    Route::get('getNotPrivateUsers/{code}', 'Api\V1\ProjectController@getNotPrivateUsers');
 });

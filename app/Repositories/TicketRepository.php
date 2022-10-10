@@ -1,133 +1,105 @@
-<?php 
+<?php
 
 namespace App\Repositories;
 
 use App\Models\Ticket;
-use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
+use App\Repositories\Traits\BaseRepository;
+use App\Repositories\Contracts\RepositoryCriteriaInterface;
 
-
-class TicketRepository extends BaseRepository
+class TicketRepository implements RepositoryCriteriaInterface
 {
+    use BaseRepository;
+
     /**
-     * Constructor 
-     * 
-     * @param Model $model
+     * @var Ticket
      */
-    public function __construct(Ticket $model)
+    protected $model;
+    protected $baseUrl;
+    protected $fieldSearchable = ['project_id','status','assignee_id','is_open'];
+
+    /**
+     * TicketRepository constructor.
+     *
+     * @param Ticket $ticket
+     */
+    public function __construct(Ticket $ticket)
     {
-        $this->model = $model;
+        $this->model = $ticket;
+        $this->baseUrl = 'tickets';
     }
 
 
-    /**
-     * Create new earning
-     * 
-     * @return App\Models\Ticket
-     */
-    public function createTicket ($payload, $userId)
+    public function allByProject($project)
     {
-        $number = $this->makeNumber();
-
-        return Ticket::create([
-            'user_id'  => $userId,
-            'number'   => $number,
-            'title'    => $payload->title,
-            'description' => $payload->description,
-            'status' => 'Pending'
-        ]);
-    }
-
-    /**
-     * Get user tickets 
-     * 
-     * @return collection 
-     */
-    public function getUserTickets ($userId)
-    {
-        return Ticket::with('comments')
-            ->where('user_id', $userId)
-            ->orderBy('id', 'desc')
-            ->paginate(20);
+        return $this->model->where('project_id', $project->id)
+        ->orderBy('id', 'desc')
+        ->with('project')
+        ->with('parent')
+        ->with('children')
+        ->with('category')
+        ->get();
     }
 
 
-    /**
-     * Get single ticket 
-     * 
-     * @return App\Models\Ticket 
-     */
-    public function getTicket ($code)
+    public function pageByOrganization($organization_id,$number = 50, $sort = 'desc', $sortColumn = 'ID')
     {
-        return Ticket::with('comments', 'comments.user')
-            ->where('code', $code)->first();
+        $this->applyCriteria();
+
+        return $this->model
+                ->whereHas('project', function ($query) use ($organization_id) {
+                    $query->where('organization_id', $organization_id);
+                })
+                ->with('category')
+                ->orderBy($sortColumn, $sort)
+                ->paginate($number);
     }
 
-
-    /**
-     * Update a ticket
-     * 
-     * @return App\Models\Ticket
-     */
-    public function updateTicket ($ticket, $payload)
+    public function ticketStatisticsByOrganization($organization)
     {
-        $ticket->title = $payload->title;
-        $ticket->description = $payload->description;
-        $ticket->status = $payload->status;
-        $ticket->assignee_id = $payload->assignee_id;
+        $now = Carbon::now();
 
-        if ($payload->updated_by)
-            $ticket->updated_by = $payload->updated_by;
+
+        $all= $organization->tickets()->count();
+        $delayed= $organization->tickets()->where('tickets.end_date','<',$now)->count();
+        $open= $organization->tickets()->where('tickets.is_open', 1)->count();
+        $close= $organization->tickets()->where('tickets.is_open', 0)->count();
             
-        $ticket->save();
 
-        return $ticket;
+        $statistics =array('all' =>$all ,'open' =>$open ,'close' =>$close ,'delayed' =>$delayed);
+
+        return $statistics;
     }
 
-
-    /**
-     * Filter users 
-     * 
-     * @return Collection 
-     */
-    public function filter (array $params) 
+    public function ticketStatisticsByProject($project)
     {
-        $paginate = Arr::get($params, 'paginate', 10);
 
-        return Ticket::with('client', 'assignee', 'updater')
-            ->when(isset($params['status']), function ($q) use ($params) {
-                return $q->where('status', '=', $params['status']);
-            })
-            ->when(isset($params['keywords']), function ($q) use ($params) {
-                return $q->where( function ($query) use ($params) {
-                    return $query->where('title', 'like', '%' . $params['keywords'] . '%');
-                });
-            })
-            ->when(isset($params['assignee']), function ($q) use ($params) {
-                return $q->where('assignee_id', '=', $params['rassigneeole']);
-            })
-            ->orderBy('id', 'desc')
-            ->paginate($paginate);
+        $open= $project->tickets()->where('tickets.is_open', 0)->count();
+        $close= $project->tickets()->where('tickets.is_open', 1)->count();
+
+        $ticketsByUser= $project
+            ->tickets()
+            ->join('users', 'users.id', '=', 'tickets.assignee_id')
+            ->selectRaw('users.id,users.firstname,COUNT(tickets.id) as total')
+            ->groupBy('users.id')
+            ->get();
+
+            //var_dump($ticketByUser->all()); die();
+
+        $statistics =array('open' =>$open ,'close' =>$close ,'ticketsByUser' =>$ticketsByUser );
+
+        return $statistics;
     }
 
 
 
-    public function countPendingTickets () 
+
+    public function generateNumber ($organization)
     {
-        return Ticket::where('status', 'pending')->count();
-    }
-
-
-    /**
-     * Make booking number 
-     */
-    private function makeNumber () 
-    {
-        $number = 1001;
-        $latest = Ticket::orderBy('id', 'desc')
-            ->first();
-
-        if ($latest)
-            return $latest->number += rand(1, 9);
+        $number = 100011;
+        $latest = $organization->tickets()->orderBy('id', 'desc')->first();
+        if ($latest) $number = $latest->number += 1;
         return $number;
     }
+
 }

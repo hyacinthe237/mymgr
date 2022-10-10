@@ -7,7 +7,7 @@
 
 
 
-@section('body')
+@section('content')
 <div class="_large-header">
     <div class="header-logo">
         <a href="/">
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="mt-20 text-right">
-                        <button 
+                        <button
                             class="btn btn-dark btn-round w-150"
                         >Submit</button>
                     </div>
@@ -79,9 +79,9 @@
         <h2>Your Kitchen</h2>
 
         <p class="mt-10">
-            Your kitchen on Yummooh platform should be consider as a physical shop or an asset that you own. 
-        Why? because we have limited chefs on the platform, that means you can build your Kitchen 
-        brand, which you can sell later if you wish. 
+            Your kitchen on Yummooh platform should be consider as a physical shop or an asset that you own.
+        Why? because we have limited chefs on the platform, that means you can build your Kitchen
+        brand, which you can sell later if you wish.
         </p>
     </div>
 </div>
@@ -93,6 +93,3 @@
 
 @include('frontend.includes.footer')
 @endsection
-
-
-

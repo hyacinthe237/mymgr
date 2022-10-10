@@ -1,0 +1,49 @@
+
+.alert {
+    border-radius: 3px;
+    color: $brand-dark;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 4px;
+    @include box-shadow;
+
+    &.alert-info {
+        background-color: $brand-presumi;
+    }
+    &.alert-success {
+        background-color: $brand-success;
+    }
+    &.alert-danger {
+        background-color: $brand-danger;
+    }
+    &.alert-primary {
+        background-color: $brand-primary;
+    }
+    &.alert-warning {
+        background-color: $brand-warning;
+    }
+    &.alert-default {
+        background-color: white;
+    }
+
+    img {
+        width: 45px;
+        height: 45px;
+    }
+
+    a {
+        padding-left: 5px;
+        color: $brand-primary;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .time-notify {
+        padding-top: 10px;
+        color: $brand-teal;
+    }
+}
